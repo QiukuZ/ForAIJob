@@ -14,7 +14,7 @@
 
 单应矩阵(Homography)描述**两个平面之间的映射关系**。需要4对匹配点(八点法)。
 
-<img src="/Users/qk/Library/Application Support/typora-user-images/image-20220725202922364.png" alt="image-20220725202922364" style="zoom:50%;" />
+<img src="png/1.png" style="zoom:50%;" />
 
 特征点共面or纯旋转情况发生退化。
 
@@ -30,9 +30,11 @@
 其中，畸变模型还分为：针孔畸变模型、鱼眼畸变模型
 
 - **针孔畸变**模型一般包含：k1，k2，p1，p2，k3.
-- **鱼眼畸变**模型：鱼眼相机的设计引入了畸变，因此鱼眼相机所成影像存在畸变，其中径向畸变非常严重，因此其畸变模型主要考虑径向畸变。鱼眼模型的分析有多种多样，不详细展开，一般OpenCV用多项式模型近似表示，对于入射角theta，使用如下共识表达：<img src="/Users/qk/Library/Application Support/typora-user-images/image-20220725204735080.png" alt="image-20220725204735080" style="zoom:50%;" />
+- **鱼眼畸变**模型：鱼眼相机的设计引入了畸变，因此鱼眼相机所成影像存在畸变，其中径向畸变非常严重，因此其畸变模型主要考虑径向畸变。鱼眼模型的分析有多种多样，不详细展开，一般OpenCV用多项式模型近似表示，对于入射角theta，使用如下共识表达：<img src="png/2.png" style="zoom:50%;" />
 
-<img src="/Users/qk/Library/Application Support/typora-user-images/image-20220725204814173.png" alt="image-20220725204814173" style="zoom:50%;" />
+<img src="png/3.png" style="zoom:50%;" />
+
+参考资料：https://codeantenna.com/a/w6CmtokJwn
 
 ### 1.5Ransac
 
@@ -76,7 +78,7 @@ BN就是通过一定的规范化手段，把每层神经网络任意神经元这
 
 ### 2.3BatchNorm作用
 
-![image-20220725195855937](/Users/qk/Library/Application Support/typora-user-images/image-20220725195855937.png)
+![image-20220725195855937](png/4.png)
 
 ### 2.4常用的Loss项
 
