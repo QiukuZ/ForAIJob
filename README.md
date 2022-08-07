@@ -50,7 +50,7 @@ F为基础矩阵，E为本质矩阵，都由对极约束定义
 
 RANSAC全称：随机采样一致算法。
 
-### 1.6高斯牛顿&LM
+### 1.6高斯牛顿&LM&GL
 
 - 高斯牛顿(Gauss Newton):将f(x)进行一阶泰勒展开，使用J.T*J作为了二阶Hessian矩阵的近似。
 
@@ -67,10 +67,23 @@ RANSAC全称：随机采样一致算法。
   ![LM2](png/8.png)
 
   labmda接近0时，类似高斯牛顿法，二次型近似不错；labmda变大，接近最速下降(1阶梯度)。
-
+- Dog Leg: 以信赖域为中心。高斯牛顿法的步长在信赖域中，用高斯牛顿；最速下降的步长在信赖域之外，用归一化到信赖域的最速下降；高斯牛顿法超出信赖域，牛顿法没有超出，找到一个比例，使得两者的加权和在信赖域上。
+$$
+\left\{\begin{array}{ll}
+\text { if }\left\|h_{g n}\right\| \leq \Delta & h_{d l}=h_{g n} \\
+\text { else if }\left\|\alpha h_{s d}\right\| \geq \Delta & h_{d l}=\frac{\Delta}{\left\|h_{s d}\right\|} h_{s d} \\
+\text { else } & h_{d l}=\alpha h_{s d}+\beta\left(h_{g n}-\alpha h_{s d}\right) \\
+& \text { 选择 } \beta \text { 使得 }\left\|h_{d l}\right\|=\Delta
+\end{array}\right.
+$$
+![GL](png/9.png)
 ### 1.7有哪些鲁棒核函数
 
-- [ ] TODO
+- Huber: $\rho(s)=\left\{\begin{array}{ll}s & s \leq 1 \\ 2 \sqrt{s}-1 & s>1\end{array}\right.$ 
+- SoftLOneLoss: $\rho(s)=2(\sqrt{1+s}-1)$
+- Cauchy: $\rho(s)=\log (1+s)$
+- Acrtan: $\rho(s)=\arctan (s)$
+- Tolerrant: $\rho(s, a, b)=b \log \left(1+e^{(s-a) / b}\right)-b \log \left(1+e^{-a / b}\right)$
 
 ### 1.8激光雷达的畸变如何产生
 
@@ -78,7 +91,8 @@ RANSAC全称：随机采样一致算法。
 
 ### 1.9什么是边缘化
 
-- [ ] TODO
+- [ ] TODO 补充
+- Schur 消元，利用H稀疏特性，先求解路标的坐标再求解相机位姿。
 
 ### 1.10什么是ORB特征，ORB特征的旋转不变性是如何做的
 
@@ -133,3 +147,15 @@ sigmoid、ReLU、Tanh
 ### 3.1NeRF如何提高图像质量
 
 - [ ] TODO
+### 3.2 Nerf 加速：
+  - Instant Neural Graphics Primitives with a Multiresolution Hash Encoding
+ - TensoRF: Tensorial Radiance Fields 
+  - R2L
+### 3.3 Unconstrained Images: 
+  - Ha—Nerf
+  - Nerf in the wild:  没开源，复现性能困难
+### 3.4 表面重建:
+ - Neus： 难以加速
+ - Neural RGB-D Surface Reconstruction 
+### 3.5 editable Nerf:
+ - Learning Object-Compositional Neural Radiance Field for Editable Scene Rendering
