@@ -99,7 +99,14 @@ $$
 ORB = Oriented Fast + BRIEF
 
 尺度不变通过金字塔实现，旋转不变通过灰度质心实现。
+### 1.11 Harris 角点
+Harris角点的优点
+  - 计算简单
+  - 提取的点特征均匀且合理
+  - 稳定：Harris算子对图像旋转、亮度变化、噪声影响和视点变换不敏感
 
+Harris 算子的局限性
+  - 对尺度很敏感，不具有尺度不变性
 ## 2.深度学习相关
 
 ### 2.1梯度消失&梯度爆炸
@@ -159,3 +166,28 @@ sigmoid、ReLU、Tanh
  - Neural RGB-D Surface Reconstruction 
 ### 3.5 editable Nerf:
  - Learning Object-Compositional Neural Radiance Field for Editable Scene Rendering
+
+### 3.6 曝光不同图片
+HDR-NeRF
+
+### 3.7 噪声
+- NeRF in the dark
+
+### 3.7 图片很少3-4张
+引入先验
+- pixelNeRF
+- Putting NeRF on a Diet
+### 3.8 图片尺度不一
+- MipNeRF
+
+### 3.9 位姿不准确
+- BARF
+- NeRF--
+- GNeRF
+
+### 3.10 相机畸变 
+- self-calibration neural radiance field
+
+### 3.11 模糊图片
+- Deblur NeRF
+
