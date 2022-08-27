@@ -139,6 +139,12 @@ BN就是通过一定的规范化手段，把每层神经网络任意神经元这
 
 ### 2.4常用的Loss项
 
+- 回归问题L1 loss、L2 loss
+
+  L1损失与L2损失的区别：L2损失的收敛速度更快，但是受到离群点的影响更大
+
+- 分类问题：交叉熵损失
+
 ### 2.5几种常用的优化器：[链接1](https://www.cnblogs.com/guoyaohua/p/8542554.html) [链接2](https://blog.csdn.net/weixin_40170902/article/details/80092628)
 
 **BGD**：batch gradient descent，使用整个batch的数据计算梯度。优点是梯度下降比较稳定，缺点是太耗时。
@@ -159,15 +165,15 @@ BN就是通过一定的规范化手段，把每层神经网络任意神经元这
 
 ### 2.6常用的激活函数
 
-sigmoid、ReLU、Tanh
+sigmoid(容易出现梯度消失)、ReLU、Tanh
 
 其它一些函数：
 
-softmax
+softmax（用于分类任务）：![](png/softmax.png)
 
 ## 2.7 Transformer相关
 
-
+- [ ] TODO
 
 ## 3.NeRF相关
 
